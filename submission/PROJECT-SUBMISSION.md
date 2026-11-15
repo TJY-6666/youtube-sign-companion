@@ -47,4 +47,4 @@ Tan Jun Yong — solo builder, Universiti Malaya. Confirm the exact Vultr Commun
 Hackathons; Accessibility; AI; Three.js; PyTorch; Chrome Extension. Under “Build for an event?” select HackGlobal 2026.
 
 ## Submission condition
-The organizer guide gives a 15 November 2026 12:00 IST deadline (14:30 Malaysia/Singapore) and says late submissions are not accepted. The normal deadline has passed; no exception or extension has been verified. A saved HackCulture prototype is not the final Vultr Community submission. Confirm eligibility with the organizer before representing this package as an accepted competition entry.
+The organizer guide gives a 15 November 2026 12:00 IST submission deadline (14:30 Malaysia/Singapore). A fresh read of the live event page on the same day still showed Submit your build and an event end of 20:00 SGT. Event end and submission cutoff may differ; no extension or late-entry acceptance has been verified. A saved HackCulture prototype is not the final Vultr Community submission. Confirm eligibility with the organizer before representing this package as an accepted competition entry.
