@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Try the experimental English caption to Avatar pipeline used by YouTube Sign Companion.">
+  <title>Sign Companion · Caption workspace</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="demo.html" aria-label="Sign Companion caption workspace">Sign Companion</a>
+    <nav aria-label="Project resources"><a href="/architecture.svg">Architecture</a><a href="/downloads/youtube-sign-companion-extension.zip" download>Get Chrome extension</a></nav>
+  </header>
+  <main>
+    <div class="heading"><div><h1>Caption workspace</h1><p>Turn an English sentence into experimental Avatar motion.</p></div><p class="connection" id="connection" role="status">Checking model…</p></div>
+    <div class="workspace">
+      <section class="input-pane" aria-labelledby="input-heading">
+        <h2 id="input-heading">English caption</h2>
+        <p>Try a sentence here. For synchronized YouTube playback, install the Chrome extension.</p>
+        <form id="caption-form">
+          <label for="caption">Sentence <span id="word-count">0 / 40 words</span></label>
+          <textarea id="caption" name="caption" maxlength="300" rows="5" placeholder="Enter a short English sentence." required aria-describedby="caption-help"></textarea>
+          <p class="help" id="caption-help">Up to 40 words and 300 characters. Captions are sent only when you select Generate motion.</p>
+          <label for="token">Demo access token</label>
+          <input id="token" name="token" type="password" autocomplete="off" spellcheck="false" required aria-describedby="token-help">
+          <p class="help" id="token-help">Use the app token supplied by the project owner. It stays in this tab and is never included in the address.</p>
+          <label class="consent"><input id="consent" type="checkbox" required><span>Send this sentence to the connected model. I understand the signing is unverified.</span></label>
+          <div class="actions"><button id="generate" type="submit" disabled>Generate motion</button><button id="cancel" type="button" class="secondary" hidden>Cancel</button></div>
+        </form>
+        <p id="status" class="status" role="status">Enter a caption and access token to begin.</p>
+        <button id="refresh" type="button" class="text-button">Check connection</button>
+      </section>
+      <section class="output-pane" aria-labelledby="output-heading">
+        <div class="output-heading"><h2 id="output-heading">Avatar output</h2><div class="playback"><button id="pause" class="secondary" type="button" disabled>Pause</button><button id="replay" class="secondary" type="button" disabled>Replay</button></div></div>
+        <iframe id="avatar" title="Experimental Avatar and synchronized hand close-ups" src="/avatar/index.html"></iframe>
+        <div class="source"><h3>Sentence used for this motion</h3><p id="shown-caption">No motion generated yet.</p></div>
+        <dl class="metrics"><div><dt>Request time</dt><dd id="latency">—</dd></div><div><dt>Motion duration</dt><dd id="duration">—</dd></div><div><dt>Source</dt><dd id="provenance">Waiting for a result</dd></div></dl>
+      </section>
+    </div>
+    <section class="instructions" aria-labelledby="youtube-heading"><h2 id="youtube-heading">Use it alongside YouTube</h2><ol><li>Download and unzip the extension. In <code>chrome://extensions</code>, enable Developer mode, then select <strong>Load unpacked</strong>.</li><li>In the extension popup, enter this site's HTTPS origin and the app token, then select <strong>Save connection</strong>.</li><li>Open a normal English YouTube video, refresh it, enable English CC, and open the companion. Agree to caption processing and start.</li></ol><p>Prepared motion follows the video's clock. Missing current motion can pause the video to buffer. No captions means no translation; this version does not capture audio.</p></section>
+    <p class="limit">Research prototype. Source-pose interpretation, handshapes and ASL meaning remain unverified. This workspace tests the model pipeline; it is not a verified sign-language interpreter.</p>
+    <noscript><p>JavaScript is required to call the model and render the Avatar. You can still download the Chrome extension and view the architecture.</p></noscript>
+  </main>
+  <script type="module" src="demo.js"></script>
+</body>
+</html>

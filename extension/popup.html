@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>手语伴看</title><link rel="stylesheet" href="popup.css"></head>
+<body><main>
+  <h1>手语伴看</h1><p>把正在观看的英文字幕送入手语模型。</p>
+  <ol><li>启动手语后端，打开视频英文 CC。</li><li>点击下方按钮，进入伴看面板。</li><li>同意处理字幕，点击“开始实时翻译”。</li></ol>
+  <button id="open" class="primary">打开 YouTube 伴看面板</button>
+  <p class="note">只读取字幕，不录制音频。整份字幕可用时提前生成动作；否则读取可见 CC，会有处理延迟。</p>
+  <details><summary>后端连接设置</summary>
+    <label for="backend">后端地址</label><input id="backend" type="url" value="http://127.0.0.1:4318" spellcheck="false">
+    <label for="token">应用连接令牌</label><input id="token" type="password" autocomplete="off" placeholder="本机连接文件中的 app token">
+    <p>这里填写应用令牌，不填写 SignStream 密钥。</p><button id="save">保存后端设置</button>
+  </details>
+  <p id="status" role="status" aria-live="polite">请先打开普通 YouTube 视频页面。</p>
+  <p class="note">模型仍有明显手语错误，尚不能作为可靠翻译。请保留原字幕。v0.6.0</p>
+</main><script src="connection.js"></script><script type="module" src="popup.js"></script></body></html>

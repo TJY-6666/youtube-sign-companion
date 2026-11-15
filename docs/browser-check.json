@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "scope": "Current public workspace and actual existing local RoboSTAR reached through an authenticated loopback test proxy. No second model loaded. No paid API. Recording is explicitly local; it does not prove Vultr deployment, live YouTube support, ASL accuracy or whole-video coverage.",
+  "checks": [
+    "Missing consent blocks inference",
+    "Wrong token rejected before model execution",
+    "Actual sentence-to-motion response played in real WebGL Avatar",
+    "Pause/resume and replay issue no new model request",
+    "40-word gate",
+    "Desktop/tablet/mobile screenshots and overflow",
+    "Download is a sanitized extension ZIP",
+    "Unready model blocks Start"
+  ],
+  "negativeStateFixture": "Only the model-unavailable health state is simulated.",
+  "calls": [
+    {
+      "text": "Please open the book.",
+      "frames": 32,
+      "fps": 20,
+      "poseProfile": "experimental-inverse",
+      "seconds": 0.786,
+      "accuracyReviewed": false
+    },
+    {
+      "text": "Please open the book.",
+      "frames": 32,
+      "fps": 20,
+      "poseProfile": "experimental-inverse",
+      "seconds": 0.875,
+      "accuracyReviewed": false
+    },
+    {
+      "text": "Thank you.",
+      "frames": 32,
+      "fps": 20,
+      "poseProfile": "experimental-inverse",
+      "seconds": 0.693,
+      "accuracyReviewed": false
+    }
+  ],
+  "browserErrors": []
+}

@@ -1,0 +1,31 @@
+FROM node:24-bookworm-slim AS node
+WORKDIR /build
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+FROM nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+ENV DEBIAN_FRONTEND=noninteractive PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1
+RUN apt-get update && apt-get install -y --no-install-recommends python3.10 python3-pip git ca-certificates libgomp1 && rm -rf /var/lib/apt/lists/*
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+WORKDIR /app
+COPY --from=node /build/node_modules ./node_modules
+COPY motion/requirements.txt /tmp/motion-requirements.txt
+RUN python3 -m pip install --no-cache-dir torch==2.5.1 --index-url https://download.pytorch.org/whl/cu124 && \
+    python3 -m pip install --no-cache-dir -r /tmp/motion-requirements.txt
+RUN git init /opt/robostar && git -C /opt/robostar remote add origin https://github.com/zyjOrz/RoboSTAR.git && \
+    git -C /opt/robostar fetch --depth 1 origin 2371ba3e7cdd57242b4a96709a977eabc298e940 && \
+    git -C /opt/robostar checkout --detach FETCH_HEAD
+COPY package.json ./
+COPY server ./server
+COPY motion ./motion
+COPY framegen ./framegen
+COPY transcription ./transcription
+COPY extension/avatar ./extension/avatar
+COPY extension/content.js ./extension/content.js
+COPY extension/captions.js ./extension/captions.js
+COPY public ./public
+ENV MOTION_PYTHON=/usr/bin/python3 MOTION_SOURCE_DIR=/opt/robostar \
+    MOTION_MODEL_DIR=/models/robostar MOTION_BASE_DIR=/models/mt5 \
+    ENABLE_MOTION=1 ENABLE_FRAMEGEN=0 ENABLE_GENERATION=0 HOST=0.0.0.0 PORT=4318
+EXPOSE 4318
+CMD ["node", "server/index.mjs"]

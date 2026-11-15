@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+<title id="title">YouTube Sign Companion — system architecture</title><desc id="desc">The Chrome extension reads English timed captions locally. After consent it sends text to an authenticated Node backend and resident RoboSTAR model. Motion returns to the browser Avatar, which follows the video clock. Vultr deployment is planned and must be verified separately.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="#67dbc5"/></marker><style>text{font-family:Arial,sans-serif;fill:#f5f5f5}.body{font-size:18px;fill:#c6c6c6}.label{font-size:21px;font-weight:600}.small{font-size:16px;fill:#c6c6c6}.box{fill:#222;stroke:#555;stroke-width:1}.wire{fill:none;stroke:#67dbc5;stroke-width:2;marker-end:url(#arrow)}</style></defs>
+<rect width="1280" height="760" fill="#101010"/><text x="48" y="65" font-size="32" font-weight="600">YouTube Sign Companion</text><text x="48" y="99" class="body">English captions → experimental motion → browser Avatar</text>
+<rect x="40" y="136" width="576" height="500" rx="12" fill="#171717"/><rect x="656" y="136" width="584" height="500" rx="12" fill="#171717" stroke="#777" stroke-dasharray="7 6"/>
+<text x="64" y="173" class="label">Viewer's desktop Chrome</text><text x="680" y="173" class="label">Vultr Compute · target deployment</text><text x="680" y="200" class="small">Cloud execution is not yet verified</text>
+<rect class="box" x="72" y="218" width="248" height="98" rx="7"/><text x="92" y="252" class="label">YouTube player</text><text x="92" y="282" class="small">English timed text / visible CC</text>
+<rect class="box" x="72" y="370" width="248" height="122" rx="7"/><text x="92" y="407" class="label">Chrome extension</text><text x="92" y="438" class="small">Consent, lookahead, queue</text><text x="92" y="464" class="small">Caption comparison, provenance</text>
+<path class="wire" d="M196 316V367"/><text x="214" y="348" class="small">local read</text>
+<rect class="box" x="704" y="252" width="488" height="108" rx="7"/><text x="728" y="289" class="label">Caddy HTTPS → Node API</text><text x="728" y="322" class="small">App-token authentication · bounded requests</text>
+<rect class="box" x="704" y="416" width="488" height="108" rx="7"/><text x="728" y="453" class="label">Resident RoboSTAR · NVIDIA GPU</text><text x="728" y="486" class="small">Text → motion133 · experimental pose conversion</text><path class="wire" d="M948 360V412"/>
+<path class="wire" d="M320 412H472V302H700"/><text x="350" y="286" class="small">HTTPS · text only after Start</text>
+<rect class="box" x="348" y="508" width="236" height="100" rx="7"/><text x="368" y="543" class="label">Three.js Avatar</text><text x="368" y="574" class="small">Video clock + hand close-ups</text>
+<path class="wire" d="M704 477H640V556H588"/><text x="650" y="574" class="small">motion data</text><path class="wire" d="M320 463H358V504"/>
+<text x="72" y="603" class="small">Pause / seek fence old work</text>
+<text x="48" y="681" class="body">Current viewer: captions only; no audio capture, image generation or paid video API.</text><text x="48" y="715" class="body">Integration tests validate processing and playback. ASL accuracy and whole-video coverage remain unverified.</text>
+</svg>

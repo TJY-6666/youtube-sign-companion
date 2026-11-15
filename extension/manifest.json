@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Sign Companion — Prototype",
+  "version": "0.6.0",
+  "description": "Experimental English YouTube captions to an ASL Avatar, with timestamped preparation and processing delay.",
+  "minimum_chrome_version": "116",
+  "permissions": ["activeTab", "storage", "tabCapture", "offscreen"],
+  "host_permissions": ["https://www.youtube.com/*", "http://127.0.0.1:4318/*", "http://localhost:4318/*"],
+  "optional_host_permissions": ["https://*/*"],
+  "action": { "default_popup": "popup.html", "default_title": "Sign companion" },
+  "background": { "service_worker": "background.js" },
+  "web_accessible_resources": [{ "resources": ["avatar/*.html", "avatar/*.js", "avatar/*.css", "avatar/assets/*.glb", "avatar/vendor/*.js", "avatar/vendor/loaders/*.js", "avatar/vendor/utils/*.js"], "matches": ["https://www.youtube.com/*"] }],
+  "content_scripts": [
+    { "matches": ["https://www.youtube.com/*"], "js": ["caption-page.js"], "world": "MAIN", "run_at": "document_start" },
+    { "matches": ["https://www.youtube.com/*"], "js": ["captions.js", "content.js"] }
+  ]
+}

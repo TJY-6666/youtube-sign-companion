@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "scope": "Real MV3 MAIN-world caption bridge, timed JSON3 fixture, actual resident RoboSTAR and actual Avatar. This is not a live YouTube caption-availability or ASL accuracy test.",
+  "nativeResponse": false,
+  "checks": [
+    "Full captions fetched before panel open with no visible CC needed",
+    "Three upcoming segments generated while paused",
+    "Future results wait for their source timestamps",
+    "Displayed path identifies the real caption source, prompt hints and approximate mapping",
+    "Avatar follows the video clock and holds on pause",
+    "Seek discards old work and loads the new timestamp without resuming a manual pause",
+    "Stop permits replay and retains clip provenance"
+  ],
+  "captionFetches": 1,
+  "secondTime": 1.844744,
+  "shownPath": "Path (shown clip): YouTube caption file → RoboSTAR + sign-token hints → experimental pose correction → Avatar",
+  "paidGeneration": false
+}

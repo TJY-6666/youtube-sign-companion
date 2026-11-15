@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.caption
+    gpus: all
+    restart: unless-stopped
+    environment:
+      APP_TOKEN: ${APP_TOKEN:?Set a new app token in deploy/.env}
+      PUBLIC_ORIGIN: https://${DOMAIN:?Set a domain pointing to the server}
+      ENABLE_GENERATION: "0"
+      ENABLE_FRAMEGEN: "0"
+      MOTION_DTYPE: ${MOTION_DTYPE:-bf16}
+      MOTION_POSE_PROFILE: ${MOTION_POSE_PROFILE:-experimental-inverse}
+    volumes:
+      - ./models:/models
+    expose:
+      - "4318"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4318/api/health').then(r=>r.json()).then(h=>process.exit(h.motionReady?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 300s
+      retries: 3
+  https:
+    image: caddy:2
+    restart: unless-stopped
+    environment:
+      DOMAIN: ${DOMAIN:?Set DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - app
+volumes:
+  caddy-data:
+  caddy-config:

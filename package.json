@@ -1,0 +1,19 @@
+{
+  "name": "youtube-sign-companion",
+  "private": true,
+  "version": "0.6.0",
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/setup-local.mjs",
+    "start": "node --env-file=.env.local --env-file-if-exists=.env.motion.local server/index.mjs",
+    "test": "node --test scripts/setup-local.test.mjs scripts/check-signapse.test.mjs server/index.test.mjs transcription/bridge.test.mjs motion/bridge.test.mjs framegen/bridge.test.mjs extension/background.test.mjs extension/connection.test.mjs extension/captions.test.mjs extension/caption-page.test.mjs extension/pipeline.test.mjs extension/offscreen.test.mjs extension/avatar/landmarks.test.mjs extension/avatar/hands.test.mjs",
+    "package:extension": "py -3 scripts/package-extension.py"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "playwright": "1.65.0",
+    "three": "0.187.0"
+  }
+}

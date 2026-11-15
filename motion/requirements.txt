@@ -1,0 +1,12 @@
+# Inference subset of upstream commit 2371ba3e7cdd57242b4a96709a977eabc298e940.
+# Install torch 2.5.1 from the CUDA 12.4 index before this file; no training tools.
+transformers==5.12.1
+tokenizers==0.22.2
+sentencepiece==0.2.2
+safetensors==0.5.3
+huggingface_hub==1.17.0
+numpy==2.2.6
+scipy==1.15.3
+PyYAML==6.0.3
+einops==0.8.2
+protobuf==7.36.2

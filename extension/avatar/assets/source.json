@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/immersive-web/webxr-input-profiles/tree/f4992299601614adbfefd398dc8e281556bb7444/packages/assets/profiles/generic-hand",
+  "revision": "f4992299601614adbfefd398dc8e281556bb7444",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2019 Amazon",
+  "files": ["left.glb", "right.glb"],
+  "changes": "Original meshes, skin weights and bind matrices retained. Runtime reconstructs finger hierarchy preserving bind transforms, aligns wrists, recolors skin and applies limited anatomical motion projection. This is not exact SMPL-X retargeting."
+}
