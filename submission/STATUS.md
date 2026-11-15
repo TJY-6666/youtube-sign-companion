@@ -6,10 +6,10 @@ Last prepared: 15 November 2026, Malaysia/Singapore time.
 |---|---|---|
 | Current source and English documentation | Prepared locally | Sanitized source release and README |
 | System design and user flow screenshots | Prepared and checked locally | `architecture.svg`, workspace and controlled extension captures |
-| Public GitHub repository | Pending | Requires publishing the sanitized release under the participant's account |
+| Public GitHub repository | Published and verified publicly | https://github.com/TJY-6666/youtube-sign-companion |
 | Vultr Compute backend | Blocked by account cost limit | Live account: $200 credit, zero instances, Max Instance Cost $200/month; the selected GPU exceeds this plan ceiling |
 | Public working demo URL | Pending | Demo workspace implemented locally; HTTPS/cloud verification outstanding |
-| Recorded demonstration | Local recording prepared by browser check | Cloud-running segment and hosted video URL remain required |
+| Recorded demonstration | Local recording published and checked | https://github.com/TJY-6666/youtube-sign-companion/blob/main/docs/local-product-demo.mp4; cloud-running segment still required |
 | ASL correctness | Unresolved | Current motion still has serious source/handshape/semantic errors |
 | Competition submission | Not submitted by this work | Normal deadline passed; late acceptance unconfirmed |
 

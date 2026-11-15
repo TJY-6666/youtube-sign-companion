@@ -1,6 +1,6 @@
 # Vultr Community project fields
 
-Use only verified URLs. Replace the three pending link fields before final submission; do not paste them as working links.
+Use only verified URLs. Complete the public cloud-demo field before final submission; do not present a pending URL as working.
 
 ## Project name
 YouTube Sign Companion
@@ -33,9 +33,9 @@ Attach `architecture.svg` and the current workspace / extension screenshots. Sta
 Planned: Vultr Compute hosts the authenticated Node backend and resident GPU motion model, with Caddy providing HTTPS. The browser renders the Avatar. At package preparation time, cloud execution is not yet verified. Replace this paragraph with the actual instance type and verified behavior after deployment; a $200 credit balance alone is not deployment evidence.
 
 ## Links — pending external work
-- Public GitHub repository: not yet published / verified.
+- Public GitHub repository: https://github.com/TJY-6666/youtube-sign-companion
 - Public live demo URL: not yet deployed / verified.
-- Recorded demo URL: local recording prepared separately; hosted link pending.
+- Recorded demo URL: https://github.com/TJY-6666/youtube-sign-companion/blob/main/docs/local-product-demo.mp4 (local execution only; the Vultr-running segment is still pending).
 
 ## Validation and impact
 Describe the local checks in `VALIDATION.md` and preserve their scope. No user adoption, international reach, translation-accuracy percentage or market-size number has been measured. Do not invent these results.

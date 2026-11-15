@@ -107,4 +107,4 @@ See [THIRD_PARTY.md](submission/THIRD_PARTY.md). Pretrained model and asset term
 
 ## Submission status
 
-The material is prepared for **HackGlobal 2026 · Multimodal and accessibility**. A repository ZIP, local recording and deployment recipe are preparation artifacts, not proof of a public repository, cloud deployment or accepted competition submission. See [STATUS.md](submission/STATUS.md) for the exact remaining items.
+The project is prepared for **HackGlobal 2026 · Multimodal and accessibility**. [Public source](https://github.com/TJY-6666/youtube-sign-companion) and the local recording are published. The backend is not yet deployed on Vultr and no accepted competition submission is claimed. See [STATUS.md](submission/STATUS.md) for the exact remaining items.

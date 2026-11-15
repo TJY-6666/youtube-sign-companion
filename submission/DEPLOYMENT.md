@@ -4,7 +4,7 @@ This guide deploys the current caption-to-Avatar product. It does not enable gen
 
 ## Provisioning
 
-Create one deployable NVIDIA Cloud GPU instance with an Ubuntu GPU-enabled image. The last user-visible A16 16 GB plan was quoted at approximately $0.47/hour; availability, exact cost and credit eligibility must be checked in the account. A16 is unbenchmarked for this project and is not promised to outperform the local GPU. The previous `Monthly Fee Limit Reached` error requires an account-limit review even when credits exist.
+Create one deployable NVIDIA Cloud GPU instance with an Ubuntu GPU-enabled image. The last user-visible A16 16 GB plan was quoted at approximately $0.47/hour; availability, exact cost and credit eligibility must be checked in the account. A16 is unbenchmarked for this project and is not promised to outperform the local GPU. The live account currently has a Max Instance Cost limit of $200/month, below the previously selected GPU plan's quoted monthly price. Request a sufficient instance-cost limit before provisioning; a limit increase is not a credit top-up or a spending cap.
 
 Use a public IPv4 address, SSH access and a domain with its DNS A record pointing to that IP. Allow TCP 22 for management and 80/443 for HTTPS. Keep port 4318 private. On the server, verify:
 
@@ -18,7 +18,7 @@ Compose must be 2.30+. Both GPU checks must work before model download. Use the 
 
 ## Upload
 
-Upload the sanitized `sign-companion-source.zip` or clone the eventual public repository. Do not copy `.env.local`, `.env.motion.local`, `connection.local.json`, browser profiles or private models. Extract it under `/opt/sign-companion`, then:
+Upload the sanitized `sign-companion-source.zip` or clone [the public repository](https://github.com/TJY-6666/youtube-sign-companion). Do not copy `.env.local`, `.env.motion.local`, `connection.local.json`, browser profiles or private models. Extract it under `/opt/sign-companion`, then:
 
 ```bash
 cd /opt/sign-companion/deploy
